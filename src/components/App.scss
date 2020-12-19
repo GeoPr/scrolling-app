@@ -1,0 +1,44 @@
+.page {
+  // .page__sc
+  &__sc {
+		background: #333;
+  }
+}
+.sc {
+  // .sc__container
+  &__container {
+  }
+  // .sc__body
+  &__body {
+		min-height: 100vh;
+		display: grid;
+		grid-template: auto / 500px;
+		place-content: center;
+		padding: 20px;
+	}
+	// .sc__items
+	&__items {
+		padding: 20px;
+		border-radius: 10px;
+		background: #232332;
+	}
+	// .sc__items-body
+	&__items-body {
+		display: grid;
+		row-gap: 20px;
+		overflow-y: scroll;
+		padding: 0px 20px;
+		height: 400px;
+	}
+	// .sc__item
+	&__item {
+		height: 50px;
+		background: #eee;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-transform: uppercase;
+		font-size: 20px;
+	}
+}
