@@ -1,4 +1,10 @@
-import React, { BaseSyntheticEvent, useState } from 'react'
+import React, {
+  BaseSyntheticEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { Container } from './Container/Container'
 import './App.scss'
 
@@ -23,8 +29,9 @@ const App: React.FC = () => {
   const [items, setItems] = useState<Array<IItem>>(
     createItemsArray(countOfItems),
   )
+  const $itemsBody = useRef<HTMLDivElement>(null)
 
-  const createMoteItems = () => {
+  const createMoreItems = () => {
     setCountOfItems(prev => prev + 1)
     setItems(prev => createItemsArray(countOfItems + 1))
   }
@@ -47,7 +54,7 @@ const App: React.FC = () => {
     const isEnd = scrollHeight - scrollTop <= clientHeight
 
     if (items.length < maxLenghtOfItems && items.length >= initalCountOfItems) {
-      if (isEnd) createMoteItems()
+      if (isEnd) createMoreItems()
       if (scrollPosition > scrollTop || scrollTop === 0) {
         createLessItems()
       }
